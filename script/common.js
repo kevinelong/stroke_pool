@@ -17,9 +17,12 @@ function create(tagName, attributeList) {
     return element;
 }
 
+function text(text){
+    return document.createTextNode(text);
+}
 
-function div() {
-    return document.createElement('div');
+function div(attributeList) {
+    return create('div', attributeList);
 }
 
 function get(id) {
@@ -32,4 +35,16 @@ function defer(f) {
 
 function append(element) {
     document.body.appendChild(element);
+}
+
+function merge(objectTarget, objectSource) {
+
+    var keys = Object.keys(objectSource), i, length = keys.length, key;
+
+    for (i = 0; i < length; ++i) {
+        key = keys[i];
+        objectTarget[key] = objectSource[key];
+    }
+
+    return objectTarget;
 }
