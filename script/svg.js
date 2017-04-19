@@ -1,9 +1,9 @@
 function createNS(URI, tagName) {
     var element = document.createElementNS(URI, tagName);
 
-    var list = attributeList ? attributeList : {};
+    var attributeList = attributeList ? attributeList : {};
 
-    for (var i = 0, keys = Object.keys(attributeList); keys.length; i++) {
+    for (var i = 0, keys = Object.keys(attributeList); i < keys.length; i++) {
         var key = keys[i];
         var value = attributeList[key];
         element.setAttributeNS(URI, key, value);
