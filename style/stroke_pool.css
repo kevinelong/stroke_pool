@@ -1,27 +1,33 @@
 body {
-    font-size: 2em;
+  font-size: 2em;
 }
-
-.player {
-    margin: 2em;
-}
-
 .ball {
-    font-size: 1em;
-    display: inline-block;
-    width: 19%;
-    margin: 1em 0 1em 2em;
-    font-weight: bold;
+  font-size: 1em;
+  display: inline-block;
+  width: 19%;
+  margin: 1em 0 1em 2em;
+  font-weight: bold;
 }
-
-.ball.removed{
-    font-weight: normal;
+.ball .removed {
+  font-weight: normal;
 }
-
-.selected.player {
-    font-weight: bold;
+.player {
+  margin: 2em;
 }
-
+.player.selected {
+  font-weight: bold;
+}
 .scoreUpdate {
-    display: inline-block;
+  display: inline-block;
+}
+.ballElement {
+  position: relative;
+  width: 60px;
+  height: 45px;
+  text-align: center;
+  display: inline-block;
+  padding-top: 15px;
+  overflow: hidden;
+  font-size: 25px;
+  border: 1px solid #000;
 }

@@ -10,7 +10,7 @@ function getBallElement(number) {
     var c = circle(30, 30, 20, 'white', '#DDDD00', 15);
     s.appendChild(c);
 
-    var d = div('class':'ballElement');
+    var d = div({'class':'ballElement'});
 
     d.appendChild(text(number));
     d.appendChild(s);
