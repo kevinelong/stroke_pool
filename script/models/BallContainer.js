@@ -1,5 +1,3 @@
-
-
 /**
  * BALL CONTAINER
  */
@@ -37,17 +35,13 @@ BallContainer.prototype.onBallClick = function (e) {
     console.log('Clicked: ' + e.model.toString())
 };
 
+
 BallContainer.prototype.drawBall = function (b) {
 
-    var e = div();
-
-    e.innerHTML = b.toString();
-    e.classList.add('ball');
-
+    var factory = new BallElement();
+    var e = factory.get(b.ordinal);
     e.ballOwner = this;
-
     e.addEventListener('click', this.onBallClick);
-
     b.element = e;
     e.model = b;
 

@@ -1,0 +1,38 @@
+<!--<?xml version="1.0" encoding="utf-8" ?>-->
+<svg viewBox="-10.0 -10.0 600.0 600.0"
+     fill="silver"
+     stroke="black"
+     stroke-linecap=""
+     stroke-miterlimit="10"
+     xmlns="http://www.w3.org/2000/svg" background-color="green"
+>
+    <defs>
+        <clipPath id="cp1">
+            <circle cx="30" cy="30" r="30"/>
+        </clipPath>
+        <linearGradient
+            id="MyGradient"
+            x1="0%" y1="0%"
+            x2="0%" y2="100%"
+            spreadMethod="pad"
+        >
+            <stop offset="0%"  stop-color="#ffee33" stop-opacity="0.01"/>
+            <stop offset="100%" stop-color="#39966" stop-opactiy="0.01"/>
+        </linearGradient>
+    </defs>
+
+    <circle cx="30" cy="30" r="30" fill="#ffee99" stroke="#222222" stroke-width="0.1"/>
+
+    <rect x="0" y="10" width="60" height="40" fill="#f8e800" stroke="none" clip-path="url(#cp1)" />
+
+    <circle cx="30" cy="30" r="30" fill="none" stroke="#222222" stroke-width="1"/>
+    <circle cx="30" cy="30" r="15" fill="#fff8f0" stroke="black" stroke-width="2"/>
+
+    <rect x="25" y="40" width="10" height="1" fill="#222222" />
+
+    <circle cx="30" cy="25" r="5" fill="#fff8f0" stroke="#222222" stroke-width="2"/>
+    <line x1="34" y1="28" x2="27" y2="38" stroke="#222222" stroke-width="2" />
+
+    <circle cx="30" cy="30" r="30" fill="url(#MyGradient)" stroke="#222222" stroke-width="1"/>
+
+</svg>

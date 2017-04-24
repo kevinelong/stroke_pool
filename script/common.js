@@ -17,25 +17,30 @@ function create(tagName, attributeList) {
     return element;
 }
 
-function text(text){
+function text(text) {
     return document.createTextNode(text);
 }
+
 
 function div(attributeList) {
     return create('div', attributeList);
 }
 
+
 function get(id) {
     return document.getElementById(id);
 }
+
 
 function defer(f) {
     document.addEventListener('DOMContentLoaded', f);
 }
 
+
 function append(element) {
     document.body.appendChild(element);
 }
+
 
 function merge(objectTarget, objectSource) {
 
