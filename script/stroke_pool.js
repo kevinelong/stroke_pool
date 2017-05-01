@@ -76,10 +76,10 @@ StrokePool.prototype.drawPlayer = function (p) {
             var playerElement = e.target;
         }
 
-        playerElement.classList.remove('selected');
+        that.currentPlayer.classList.remove('selected');
         playerElement.classList.add('selected');
         that.currentPlayer = playerElement.model;
-
+        that.draw();
     });
 
     e.appendChild(p.draw());
