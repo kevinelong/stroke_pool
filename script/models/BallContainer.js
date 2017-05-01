@@ -52,11 +52,16 @@ BallContainer.prototype.drawBallList = function () {
 
     var e = div();
 
+    e.classList.add('ball-list');
     for (var i = 0; i < this.ballList.length; i++) {
 
         e.appendChild(
             this.drawBall(this.ballList[i])
         );
+
+        if ((((i+1) % 5) == 0) && i > 0) {
+            e.appendChild(br());
+        }
 
     }
 

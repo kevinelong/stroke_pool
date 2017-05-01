@@ -2,7 +2,7 @@ function BallElement(ordinal) {
     this.ordinal = ordinal;
 }
 
-BallElement.prototype.get = function(number) {
+BallElement.prototype.get = function (number) {
 
     var none = "none";
     var cream = "#fff8f0";
@@ -39,6 +39,7 @@ BallElement.prototype.get = function(number) {
     var twoThirds = size * 0.666666;
     var thin = '0.1';
     var thick = '2';
+    var normal = '1';
 
     var s = svg(size, size);
     s.setAttributeNS(null, 'style', "position:absolute;top:0;left:0;z-index:-1");
@@ -51,20 +52,20 @@ BallElement.prototype.get = function(number) {
     d.appendChild(cp);
     s.appendChild(d);
 
-    s.appendChild(circle(half, half, half, colors[number], none, 0));
+    s.appendChild(circle(half, half, half - 1, colors[number], none, 0));
 
-    if(number < 9){
-        s.appendChild(circle(half, half, half, colors[number], none, 0));
-    }else{
-        s.appendChild(circle(half, half, half, cream, none, 0));
+    if (number < 9) {
+        s.appendChild(circle(half, half, half - 1, colors[number], none, 0));
+    } else {
+        s.appendChild(circle(half, half, half - 1, cream, none, 0));
         s.appendChild(rect(0, sixth, size, twoThirds, colors[number], charcoal, thin, 'url(#cp1)'));
     }
 
     var container = div({'class': 'ballElement'});
 
-    if(number > 0) {
-        s.appendChild(circle(half, half, half, none, charcoal, thick));
-        s.appendChild(circle(half, half, quarter, cream, charcoal, thick));
+    if (number > 0) {
+        s.appendChild(circle(half, half, half - 1, none, cream, normal));
+        s.appendChild(circle(half, half, quarter, cream, cream, normal));
         container.appendChild(text(number));
     }
 

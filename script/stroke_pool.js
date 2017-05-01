@@ -8,6 +8,7 @@ function StrokePool(target, options) {
         MAX_BALLS: 15,
         DEFAULT_PLAYERS: 2
     };
+
     this.options = options ? options : defaultOptions;
 
     this.target = target;
@@ -49,8 +50,9 @@ StrokePool.prototype.setup = function () {
 
 
 StrokePool.prototype.drawPlayer = function (p) {
+
     var e = create('div');
-    e.innerHTML = p.toString();
+    // e.innerHTML = p.toString();
 
     e.classList.add('player');
 
@@ -61,17 +63,26 @@ StrokePool.prototype.drawPlayer = function (p) {
     var that = this;
 
     e.addEventListener('click', function (e) {
-        if (!e.target.classList.contains('player')) {
-            return;
+
+        if (e.target.classList.contains('points')) {
+            var playerElement = e.target.parentElement.parentElement;
+        }else if (e.target.parentElement.classList.contains('points')) {
+            var playerElement = e.target.parentElement.parentElement.parentElement;
+        }else  if (e.target.classList.contains('pool-table')) {
+            var playerElement = e.target.parentElement;
+        }else  if (e.target.classList.contains('ball-list')) {
+            var playerElement = e.target.parentElement.parentElement;
+        }else{
+            var playerElement = e.target;
         }
 
-        that.currentPlayer.element.classList.remove('selected');
-        e.target.classList.add('selected');
-        that.currentPlayer = e.target.model;
+        playerElement.classList.remove('selected');
+        playerElement.classList.add('selected');
+        that.currentPlayer = playerElement.model;
 
     });
 
-    e.appendChild(p.drawBallList());
+    e.appendChild(p.draw());
 
     e.model = p;
     p.element = e;
@@ -81,9 +92,12 @@ StrokePool.prototype.drawPlayer = function (p) {
 
 StrokePool.prototype.drawPlayers = function () {
 
+    var output = div();
+    output.classList.add('player-list');
+
     for (var i = 0; i < this.players.length; i++) {
         var e = this.drawPlayer(this.players[i]);
-        this.target.appendChild(e);
+        output.appendChild(e);
 
         var that = this;
 
@@ -95,12 +109,37 @@ StrokePool.prototype.drawPlayers = function () {
 
     }
 
+    return output;
 };
+
+
+StrokePool.prototype.drawOptions = function () {
+    var output = div();
+    return output;
+};
+
+
+StrokePool.prototype.drawTable = function () {
+
+    var output = div();
+
+    div.innerHTML = this.table.toString();
+
+    return output;
+
+};
+
 
 StrokePool.prototype.draw = function () {
 
     this.target.innerHTML = '';
 
-    this.target.appendChild(this.table.drawBallList());
-    this.drawPlayers();
+    var output = div();
+    output.classList.add('game-surface');
+
+    output.appendChild(this.drawOptions());
+    output.appendChild(this.table.draw());
+    output.appendChild(this.drawPlayers());
+
+    this.target.appendChild(output);
 };

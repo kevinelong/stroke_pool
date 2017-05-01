@@ -26,6 +26,15 @@ function div(attributeList) {
     return create('div', attributeList);
 }
 
+function label(attributeList) {
+    return create('label', attributeList);
+}
+
+
+function br() {
+    return create('br');
+}
+
 
 function get(id) {
     return document.getElementById(id);
