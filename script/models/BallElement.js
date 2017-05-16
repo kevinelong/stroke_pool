@@ -64,9 +64,11 @@ BallElement.prototype.get = function (number) {
     var container = div({'class': 'ballElement'});
 
     if (number > 0) {
+        var numberElement = div({'class': 'ballElementText'});
         s.appendChild(circle(half, half, half - 1, none, cream, normal));
         s.appendChild(circle(half, half, quarter, cream, cream, normal));
-        container.appendChild(text(number));
+        numberElement.appendChild(text(number));
+        container.appendChild(numberElement);
     }
 
     container.appendChild(s);
